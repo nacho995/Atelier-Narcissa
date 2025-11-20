@@ -1,5 +1,8 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import sofaShowcase from '../assets/sofa-showcase.png';
+import craftsmanHands from '../assets/craftsman-hands.png';
+import heroTexture from '../assets/hero-texture.png';
 
 const Gallery = () => {
   const ref = useRef(null);
@@ -14,42 +17,42 @@ const Gallery = () => {
       category: 'tapizado',
       description: 'Tapizado completo en terciopelo italiano burgundy',
       year: '2024',
-      image: '/src/assets/sofa-showcase.png',
+      image: sofaShowcase,
     },
     {
       title: 'Sillón Vintage Restaurado',
       category: 'restauración',
       description: 'Restauración estructural y tapizado en lino belga',
       year: '2023',
-      image: '/src/assets/craftsman-hands.png',
+      image: craftsmanHands,
     },
     {
       title: 'Colección de Cojines Premium',
       category: 'confección',
       description: 'Confección de cojines con bordados personalizados',
       year: '2024',
-      image: '/src/assets/hero-texture.png',
+      image: heroTexture,
     },
     {
       title: 'Sofá Contemporáneo',
       category: 'tapizado',
       description: 'Tapizado moderno con tejido antimanchas premium',
       year: '2024',
-      image: '/src/assets/sofa-showcase.png',
+      image: sofaShowcase,
     },
     {
       title: 'Butaca Art Déco',
       category: 'restauración',
       description: 'Restauración completa de butaca de los años 30',
       year: '2023',
-      image: '/src/assets/craftsman-hands.png',
+      image: craftsmanHands,
     },
     {
       title: 'Fundas Personalizadas',
       category: 'confección',
       description: 'Fundas extraíbles lavables para sofá modular',
       year: '2024',
-      image: '/src/assets/hero-texture.png',
+      image: heroTexture,
     },
   ];
 
@@ -62,9 +65,30 @@ const Gallery = () => {
     <section
       id="galeria"
       ref={ref}
-      className="section bg-[var(--cream)] relative overflow-hidden"
+      className="section relative overflow-hidden"
     >
-      <div className="container">
+      {/* Soft White Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#ffffff] via-[#f5f5f5] to-[#fafafa]" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(184,147,95,0.1) 2px, rgba(184,147,95,0.1) 3px),
+            repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(125,30,58,0.05) 2px, rgba(125,30,58,0.05) 3px)
+          `
+        }} />
+      </div>
+
+      {/* Soft Gradient Orbs */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/8 via-[var(--burgundy)]/2 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-gradient-radial from-[var(--gold)]/10 via-[var(--gold)]/3 to-transparent rounded-full blur-3xl" />
+      
+      {/* Fade transitions */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1a1a] via-transparent to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent pointer-events-none z-20" />
+
+      <div className="container relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -76,7 +100,7 @@ const Gallery = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="inline-block text-[var(--burgundy)] text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 font-semibold"
+            className="inline-block text-[var(--gold)] text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 font-semibold"
           >
             Portfolio
           </motion.span>
@@ -103,23 +127,15 @@ const Gallery = () => {
               onClick={() => setActiveFilter(category)}
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-6 sm:px-7 md:px-9 py-3 sm:py-3.5 md:py-4 text-xs sm:text-sm font-black tracking-[0.15em] capitalize transition-all duration-300 rounded-2xl overflow-hidden ${
+              className={`relative px-5 sm:px-6 md:px-7 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm font-semibold tracking-[0.1em] capitalize transition-all duration-300 rounded-lg ${
                 activeFilter === category
-                  ? 'bg-gradient-to-r from-[var(--burgundy)] to-[var(--burgundy-light)] text-white shadow-[0_10px_30px_rgba(125,30,58,0.4)] border-2 border-[var(--gold)]/60'
-                  : 'bg-white text-[var(--charcoal)] hover:bg-[var(--cream)] border-2 border-[var(--charcoal)]/10 hover:border-[var(--burgundy)]/30 shadow-md hover:shadow-xl'
+                  ? 'bg-gradient-to-r from-[var(--burgundy)] to-[var(--burgundy-light)] text-white shadow-[0_4px_15px_rgba(125,30,58,0.3)] border border-[var(--gold)]'
+                  : 'bg-white border border-[var(--charcoal)]/10 text-[var(--charcoal)] hover:bg-[var(--cream)] hover:border-[var(--burgundy)]/30 shadow-md hover:shadow-lg'
               }`}
             >
-              <span className="relative z-10 flex items-center gap-2">
-                {activeFilter === category && '✨'} {category}
+              <span className="relative z-10">
+                {category}
               </span>
-              {activeFilter === category && (
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                  initial={{ x: '-100%' }}
-                  animate={{ x: '200%' }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                />
-              )}
             </motion.button>
           ))}
         </motion.div>

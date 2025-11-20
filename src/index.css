@@ -59,8 +59,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--cream);
-  color: var(--charcoal);
+  background: linear-gradient(to bottom, #1a1a1a 0%, #2a1a1a 50%, #1a1a1a 100%);
+  color: #e5e5e5;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -245,16 +245,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream-dark);
+  background: #1a1a1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--burgundy);
+  background: linear-gradient(180deg, var(--burgundy), var(--gold));
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--burgundy-light);
+  background: linear-gradient(180deg, var(--burgundy-light), var(--gold-light));
 }
 
 /* Animations */
@@ -320,7 +320,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Text Gradient */
 .text-gradient {
-  background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-light) 50%, var(--gold) 100%);
+  background: linear-gradient(135deg, #8B6F47 0%, #A0826D 50%, var(--gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

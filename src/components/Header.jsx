@@ -54,10 +54,7 @@ const Header = () => {
         }
       `}</style>
       
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+      <header
         style={{
           position: 'fixed',
           top: 0,
@@ -93,7 +90,7 @@ const Header = () => {
                   transition: 'all 0.3s ease',
                 }}
                 className={`${
-                  isScrolled ? 'text-[var(--burgundy)]' : 'text-white'
+                  isScrolled ? 'text-[var(--gold)]' : 'text-white'
                 }`}
               >
                 <span className="relative">
@@ -102,12 +99,7 @@ const Header = () => {
                     style={{ 
                       fontStyle: 'italic', 
                       fontWeight: 600,
-                      background: isScrolled 
-                        ? 'linear-gradient(135deg, var(--burgundy), var(--gold))' 
-                        : 'linear-gradient(135deg, #ffffff, var(--gold))',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
-                      backgroundClip: 'text',
+                      color: '#C9A961'
                     }}
                   >
                     Narcissa
@@ -122,7 +114,7 @@ const Header = () => {
                   bottom: '-4px',
                   left: 0,
                   height: '2px',
-                  background: 'linear-gradient(90deg, var(--burgundy), var(--gold), var(--burgundy))',
+                  background: 'linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold))',
                   boxShadow: '0 2px 10px rgba(184, 147, 95, 0.5)',
                 }}
                 initial={{ width: 0 }}
@@ -138,7 +130,7 @@ const Header = () => {
                   right: '-8px',
                   fontSize: '0.65rem',
                   padding: '4px 8px',
-                  background: 'linear-gradient(135deg, var(--gold), var(--burgundy))',
+                  background: 'linear-gradient(135deg, var(--gold), var(--gold-light))',
                   color: 'white',
                   borderRadius: '10px',
                   fontWeight: 700,
@@ -178,7 +170,7 @@ const Header = () => {
                 }}
                 className={`group ${
                   isScrolled
-                    ? 'text-[var(--charcoal)] hover:text-white hover:bg-gradient-to-r hover:from-[var(--burgundy)] hover:to-[var(--burgundy-light)]'
+                    ? 'text-[var(--charcoal)] hover:text-white hover:bg-gradient-to-r hover:from-[var(--gold)] hover:to-[var(--gold-light)]'
                     : 'text-white/90 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -196,7 +188,7 @@ const Header = () => {
                     transform: 'translateX(-50%)',
                     width: '0%',
                     height: '2px',
-                    background: 'linear-gradient(90deg, var(--burgundy), var(--gold))',
+                    background: 'linear-gradient(90deg, var(--gold), var(--gold-light))',
                     borderRadius: '2px',
                   }}
                   whileHover={{ width: '70%' }}
@@ -225,7 +217,7 @@ const Header = () => {
               height: '52px',
               borderRadius: '14px',
               background: isScrolled 
-                ? 'linear-gradient(135deg, rgba(125, 30, 58, 0.1), rgba(184, 147, 95, 0.1))' 
+                ? 'linear-gradient(135deg, rgba(184, 147, 95, 0.15), rgba(212, 175, 106, 0.15))' 
                 : 'rgba(255, 255, 255, 0.15)',
               backdropFilter: 'blur(10px)',
               border: `2px solid ${isScrolled ? 'rgba(184, 147, 95, 0.4)' : 'rgba(255, 255, 255, 0.3)'}`,
@@ -249,9 +241,9 @@ const Header = () => {
                 width: '100%',
                 height: '3.5px',
                 borderRadius: '4px',
-                background: isScrolled 
-                  ? 'linear-gradient(90deg, var(--burgundy), var(--gold))' 
-                  : 'white',
+            background: isScrolled 
+              ? 'linear-gradient(90deg, var(--gold), var(--gold-light))' 
+              : 'white',
                 boxShadow: isScrolled 
                   ? '0 2px 8px rgba(184, 147, 95, 0.3)' 
                   : '0 2px 8px rgba(0, 0, 0, 0.2)',
@@ -270,9 +262,9 @@ const Header = () => {
                 width: '100%',
                 height: '3.5px',
                 borderRadius: '4px',
-                background: isScrolled 
-                  ? 'linear-gradient(90deg, var(--burgundy), var(--gold))' 
-                  : 'white',
+            background: isScrolled 
+              ? 'linear-gradient(90deg, var(--gold), var(--gold-light))' 
+              : 'white',
                 boxShadow: isScrolled 
                   ? '0 2px 8px rgba(184, 147, 95, 0.3)' 
                   : '0 2px 8px rgba(0, 0, 0, 0.2)',
@@ -293,9 +285,9 @@ const Header = () => {
                 width: '100%',
                 height: '3.5px',
                 borderRadius: '4px',
-                background: isScrolled 
-                  ? 'linear-gradient(90deg, var(--burgundy), var(--gold))' 
-                  : 'white',
+            background: isScrolled 
+              ? 'linear-gradient(90deg, var(--gold), var(--gold-light))' 
+              : 'white',
                 boxShadow: isScrolled 
                   ? '0 2px 8px rgba(184, 147, 95, 0.3)' 
                   : '0 2px 8px rgba(0, 0, 0, 0.2)',
@@ -359,7 +351,7 @@ const Header = () => {
                       transition: 'all 0.3s ease',
                       color: 'var(--charcoal)',
                     }}
-                    className="hover:bg-gradient-to-r hover:from-[var(--burgundy)] hover:to-[var(--burgundy-light)] hover:text-white hover:border-[var(--gold)]/50 hover:shadow-xl"
+                    className="hover:bg-gradient-to-r hover:from-[var(--gold)] hover:to-[var(--gold-light)] hover:text-white hover:border-[var(--gold)]/50 hover:shadow-xl"
                   >
                     <span className="flex items-center gap-4">
                       <span className="flex-shrink-0">{link.icon}</span>
@@ -372,7 +364,7 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+      </header>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import heroTexture from '../assets/hero-texture.png';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -10,6 +11,9 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Dramatic Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#2a1a1a] to-[#1a1a1a]" />
+      
       {/* Background with Parallax */}
       <motion.div
         style={{ y }}
@@ -22,14 +26,20 @@ const Hero = () => {
               135deg,
               rgba(26, 35, 50, 0.85) 0%,
               rgba(125, 30, 58, 0.75) 100%
-            ), url('/src/assets/hero-texture.png')`,
+            ), url(${heroTexture})`,
           }}
         />
       </motion.div>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-[var(--gold)] opacity-10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--burgundy)] opacity-10 rounded-full blur-3xl" />
+      {/* Elegant Gradient Orbs */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/20 via-[var(--burgundy)]/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-[700px] h-[700px] bg-gradient-radial from-[var(--gold)]/15 via-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
+      
+      {/* Top Golden Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent shadow-[0_0_20px_rgba(184,147,95,0.5)]" />
+      
+      {/* Bottom fade transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-white pointer-events-none z-20" />
 
       {/* Content */}
       <motion.div
@@ -123,36 +133,48 @@ const Hero = () => {
           >
             <motion.a
               href="#contacto"
-              whileHover={{ scale: 1.08, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative px-12 sm:px-16 py-5 sm:py-6 bg-gradient-to-r from-[var(--burgundy)] via-[var(--burgundy-light)] to-[var(--burgundy)] text-white font-black text-base sm:text-lg tracking-[0.25em] uppercase shadow-[0_20px_60px_rgba(125,30,58,0.5)] hover:shadow-[0_25px_80px_rgba(184,147,95,0.6)] transition-all duration-500 rounded-2xl flex items-center gap-4 overflow-hidden group border-2 border-[var(--gold)]/60 hover:border-[var(--gold)]"
+              whileHover={{ scale: 1.05, y: -4 }}
+              whileTap={{ scale: 0.97 }}
               style={{
-                backgroundSize: '200% auto',
-                backgroundPosition: 'left center'
+                padding: 'clamp(1.5rem, 3vw, 2rem) clamp(3rem, 5vw, 5rem)',
               }}
+              className="group relative inline-flex items-center justify-center gap-4 bg-gradient-to-r from-[var(--gold)] via-[var(--gold-light)] to-[var(--gold)] text-white font-black text-base sm:text-lg md:text-xl tracking-[0.2em] uppercase transition-all duration-400 rounded-2xl border-2 border-white/30 shadow-[0_20px_60px_rgba(184,147,95,0.4)] hover:shadow-[0_30px_80px_rgba(184,147,95,0.6)] hover:border-white overflow-hidden"
             >
-              <span className="relative z-10 flex items-center gap-4">
-                <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">💎</span>
-                Consulta Gratuita
-                <motion.svg 
-                  className="w-6 h-6" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </motion.svg>
-              </span>
+              {/* Animated background gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[var(--gold-light)] via-[var(--gold)] to-[var(--gold-light)] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+              
+              {/* Icon */}
+              <svg 
+                className="relative z-10 w-6 h-6 sm:w-7 sm:h-7" 
+                fill="none" 
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              </svg>
+              
+              <span className="relative z-10 font-black">Consulta Gratuita</span>
+              
+              <svg 
+                className="relative z-10 w-6 h-6 sm:w-7 sm:h-7 transition-transform duration-300 group-hover:translate-x-2" 
+                fill="none" 
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
               
               {/* Shine effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-                initial={{ x: '-150%' }}
-                animate={{ x: '250%' }}
-                transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
-              />
+              <div className="absolute inset-0 -skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+              
+              {/* Glow pulse */}
+              <div className="absolute inset-0 rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-400" />
             </motion.a>
           </motion.div>
         </motion.div>

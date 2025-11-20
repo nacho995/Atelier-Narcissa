@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import craftsmanHands from '../assets/craftsman-hands.png';
 
 const About = () => {
   const ref = useRef(null);
@@ -14,13 +15,30 @@ const About = () => {
     <section
       id="nosotros"
       ref={ref}
-      className="section bg-[var(--cream)] relative overflow-hidden"
+      className="section relative overflow-hidden"
     >
-      {/* Decorative Background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--burgundy)] opacity-5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[var(--gold)] opacity-5 rounded-full blur-3xl" />
+      {/* Soft White Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#fafafa] via-[#f5f5f5] to-[#ffffff]" />
+      
+      {/* Subtle texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(184,147,95,0.1) 2px, rgba(184,147,95,0.1) 3px),
+            repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(125,30,58,0.05) 2px, rgba(125,30,58,0.05) 3px)
+          `
+        }} />
+      </div>
 
-      <div className="container">
+      {/* Soft Gradient Orbs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-[var(--gold)]/10 via-[var(--gold)]/3 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/8 via-[var(--burgundy)]/2 to-transparent rounded-full blur-3xl" />
+      
+      {/* Fade transitions */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent pointer-events-none z-20" />
+
+      <div className="container relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center">
           {/* Image Side */}
           <motion.div
@@ -32,7 +50,7 @@ const About = () => {
           >
             <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
               <img
-                src="/src/assets/craftsman-hands.png"
+                src={craftsmanHands}
                 alt="Artesano trabajando con precisión"
                 className="w-full h-full object-cover"
               />
@@ -70,7 +88,7 @@ const About = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 }}
-              className="inline-block text-[var(--burgundy)] text-sm tracking-[0.25em] uppercase mb-6 font-semibold"
+              className="inline-block text-[var(--gold)] text-sm tracking-[0.25em] uppercase mb-6 font-semibold"
             >
               Atelier Narcissa
             </motion.span>
@@ -85,7 +103,7 @@ const About = () => {
 
             <div className="divider-luxury mb-6 sm:mb-8" />
 
-            <div className="space-y-4 sm:space-y-6 text-[var(--gray)] text-base sm:text-lg leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-[var(--charcoal)]/80 text-base sm:text-lg leading-relaxed">
               <p>
                 Desde 1995, <strong className="text-[var(--charcoal)]">Atelier Narcissa</strong> se
                 dedica al arte de la tapicería de lujo. Cada proyecto es único,
@@ -115,7 +133,7 @@ const About = () => {
                 <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
                   3500+
                 </div>
-                <div className="text-xs sm:text-sm text-[var(--gray)] tracking-wider uppercase">
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
                   Proyectos
                 </div>
               </div>
@@ -123,7 +141,7 @@ const About = () => {
                 <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
                   100%
                 </div>
-                <div className="text-xs sm:text-sm text-[var(--gray)] tracking-wider uppercase">
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
                   Artesanal
                 </div>
               </div>
@@ -131,7 +149,7 @@ const About = () => {
                 <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
                   A+
                 </div>
-                <div className="text-xs sm:text-sm text-[var(--gray)] tracking-wider uppercase">
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
                   Calidad
                 </div>
               </div>

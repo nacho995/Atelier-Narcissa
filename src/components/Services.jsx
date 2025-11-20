@@ -21,14 +21,16 @@ const Services = () => {
           className="w-12 h-12"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
-          />
+          <rect x="2" y="7" width="20" height="15" rx="2" />
+          <path d="M2 10h20" />
+          <path d="M7 7V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3" />
+          <circle cx="7" cy="15" r="1" />
+          <circle cx="17" cy="15" r="1" />
         </svg>
       ),
     },
@@ -47,14 +49,14 @@ const Services = () => {
           className="w-12 h-12"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-          />
+          <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9" />
+          <path d="M17.64 15 22 10.64" />
+          <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91" />
         </svg>
       ),
     },
@@ -73,14 +75,14 @@ const Services = () => {
           className="w-12 h-12"
           fill="none"
           stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="1.5"
-            d="M4 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v7a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM4 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-3zM14 16a1 1 0 011-1h4a1 1 0 011 1v3a1 1 0 01-1 1h-4a1 1 0 01-1-1v-3z"
-          />
+          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+          <circle cx="12" cy="13" r="3" />
+          <path d="M21 15.9A9 9 0 1 1 8.1 3" />
         </svg>
       ),
     },
@@ -90,11 +92,32 @@ const Services = () => {
     <section
       id="servicios"
       ref={ref}
-      className="section bg-white relative overflow-hidden"
+      className="section relative overflow-hidden"
     >
-      {/* Decorative Elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-[var(--gold)] opacity-5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-80 h-80 bg-[var(--burgundy)] opacity-5 rounded-full blur-3xl" />
+      {/* Dramatic Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#2a1a1a] to-[#1a1a1a]" />
+      
+      {/* Premium Velvet Texture - Imagen Real de Terciopelo */}
+      <div className="absolute inset-0 opacity-[0.15]">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2000&auto=format&fit=crop')`,
+            mixBlendMode: 'soft-light',
+          }}
+        />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
+
+      {/* Elegant Gradient Orbs */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/20 via-[var(--burgundy)]/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/4 w-[700px] h-[700px] bg-gradient-radial from-[var(--gold)]/15 via-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
+      
+      {/* Fade transitions */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-transparent to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-transparent to-transparent pointer-events-none z-20" />
 
       <div className="container relative z-10">
         {/* Section Header */}
@@ -108,20 +131,20 @@ const Services = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
-            className="inline-block text-[var(--burgundy)] text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 font-semibold"
+            className="inline-block text-[var(--gold)] text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase mb-3 sm:mb-4 font-semibold"
           >
             Nuestros Servicios
           </motion.span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--navy)] mb-4 sm:mb-6 leading-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-4 sm:mb-6 leading-tight">
             Excelencia en
             <br />
-            <span className="text-[var(--burgundy)] italic">Cada Proyecto</span>
+            <span className="text-[var(--gold)] italic">Cada Proyecto</span>
           </h2>
 
           <div className="divider-luxury mx-auto mb-4 sm:mb-6" />
 
-          <p className="text-[var(--gray)] text-base sm:text-lg leading-relaxed">
+          <p className="text-white/70 text-base sm:text-lg leading-relaxed">
             Ofrecemos servicios integrales de tapicería y confección textil con
             los más altos estándares de calidad artesanal.
           </p>
@@ -138,7 +161,7 @@ const Services = () => {
               whileHover={{ y: -12 }}
               className="group"
             >
-              <div className="relative h-full p-10 sm:p-12 lg:p-14 bg-gradient-to-br from-[#faf8f5] via-[#f5e6d3] to-[#faf8f5] hover:from-[#fff9f0] hover:via-[#f5e6d3] hover:to-[#fff] border-2 border-[#d4a574]/20 hover:border-[var(--gold)]/60 transition-all duration-500 shadow-[0_8px_30px_rgba(44,24,16,0.08)] hover:shadow-[0_20px_60px_rgba(125,30,58,0.15)] rounded-[2rem] overflow-hidden backdrop-blur-sm">
+              <div className="relative h-full p-10 sm:p-12 lg:p-14 bg-white/5 backdrop-blur-sm hover:bg-white/10 border-2 border-white/10 hover:border-[var(--gold)]/60 transition-all duration-500 shadow-[0_8px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_60px_rgba(184,147,95,0.3)] rounded-[2rem] overflow-hidden">
                 
                 {/* Fabric Texture Overlay */}
                 <div className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.06] transition-opacity duration-500"
@@ -160,13 +183,13 @@ const Services = () => {
                 {/* Icon with Artisan Touch */}
                 <div className="relative mb-8 sm:mb-10">
                   <div className="relative inline-block">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--burgundy)]/5 via-[#d4a574]/10 to-[var(--gold)]/5 rounded-2xl blur-xl transform rotate-6" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--burgundy)]/20 via-[#d4a574]/20 to-[var(--gold)]/20 rounded-2xl blur-xl transform rotate-6" />
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: -5 }}
                       transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-                      className="relative p-4 bg-gradient-to-br from-white/80 to-[#f5e6d3]/50 rounded-2xl shadow-lg border border-[#d4a574]/30"
+                      className="relative p-4 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl shadow-lg border border-[var(--gold)]/30"
                     >
-                      <div className="text-[var(--burgundy)] group-hover:text-[#9d2e4a] transition-colors w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+                      <div className="text-[var(--gold)] group-hover:text-white transition-colors w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
                         {service.icon}
                       </div>
                     </motion.div>
@@ -174,7 +197,7 @@ const Services = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="font-serif text-2xl sm:text-3xl text-[#2c1810] mb-4 group-hover:text-[var(--burgundy)] transition-colors leading-tight font-semibold">
+                <h3 className="font-serif text-2xl sm:text-3xl text-white mb-4 group-hover:text-[var(--gold)] transition-colors leading-tight font-semibold">
                   {service.title}
                 </h3>
 
@@ -186,7 +209,7 @@ const Services = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-[#6b5844] text-base sm:text-lg mb-8 leading-[1.8] font-light">
+                <p className="text-white/70 text-base sm:text-lg mb-8 leading-[1.8] font-light">
                   {service.description}
                 </p>
 
@@ -198,7 +221,7 @@ const Services = () => {
                       initial={{ opacity: 0, x: -10 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: index * 0.2 + idx * 0.1 }}
-                      className="flex items-start gap-3 text-sm sm:text-base text-[#2c1810] font-medium leading-relaxed"
+                      className="flex items-start gap-3 text-sm sm:text-base text-white/80 font-medium leading-relaxed"
                     >
                       {/* Custom Needle & Thread Icon */}
                       <div className="relative flex-shrink-0 mt-1">
@@ -214,44 +237,29 @@ const Services = () => {
                 {/* CTA Button - Warm & Cozy */}
                 <motion.a
                   href="#contacto"
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-[var(--burgundy)] via-[#9d2e4a] to-[var(--burgundy)] text-white font-bold text-sm sm:text-base tracking-wide transition-all shadow-[0_10px_40px_rgba(125,30,58,0.3)] hover:shadow-[0_15px_50px_rgba(125,30,58,0.4)] rounded-2xl overflow-hidden w-full group/btn border border-[var(--gold)]/30"
-                  style={{
-                    backgroundSize: '200% auto',
-                  }}
+                  className="group/btn relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-white/5 backdrop-blur-sm text-white font-medium text-sm tracking-wide transition-all duration-300 rounded-lg w-full border border-white/20 hover:border-[var(--gold)]/60 hover:bg-white/10 hover:shadow-[0_6px_20px_rgba(184,147,95,0.2)]"
                 >
-                  {/* Stitched Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none"
-                    style={{
-                      backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 8px, rgba(255,255,255,0.1) 8px, rgba(255,255,255,0.1) 10px)`,
-                    }}
-                  />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m2 7 8.97 5.7a1.94 1.94 0 0 0 2.06 0L22 7" />
+                  </svg>
+                  <span>Consultar Proyecto</span>
+                  <svg
+                    className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                   
-                  <span className="relative z-10 flex items-center gap-3">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Consultar Proyecto
-                    <motion.svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ repeat: Infinity, duration: 2 }}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </motion.svg>
-                  </span>
-                  
-                  {/* Soft Glow */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
-                    transition={{ duration: 0.8 }}
-                  />
+                  {/* Subtle glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[var(--gold)]/0 via-[var(--gold)]/10 to-[var(--gold)]/0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300" />
                 </motion.a>
 
                 {/* Artisan Badge */}
@@ -291,32 +299,25 @@ const Services = () => {
         >
           <motion.a
             href="#contacto"
-            whileHover={{ scale: 1.08, y: -5 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative inline-flex items-center gap-4 px-12 sm:px-14 py-5 sm:py-6 bg-gradient-to-r from-[var(--burgundy)] via-[var(--burgundy-light)] to-[var(--burgundy)] text-white font-black text-base tracking-[0.25em] uppercase hover:shadow-[0_20px_60px_rgba(125,30,58,0.6)] transition-all duration-500 shadow-2xl rounded-2xl overflow-hidden group border-2 border-[var(--gold)]/60 hover:border-[var(--gold)]"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="group relative inline-flex items-center justify-center gap-3 px-10 sm:px-12 py-4 sm:py-5 bg-white/5 backdrop-blur-sm text-white font-semibold text-sm sm:text-base tracking-[0.15em] uppercase transition-all duration-300 rounded-lg border border-[var(--gold)]/40 hover:border-[var(--gold)] hover:bg-white/10 hover:shadow-[0_8px_30px_rgba(184,147,95,0.25)]"
           >
-            <span className="relative z-10 flex items-center gap-4">
-              <span className="text-2xl group-hover:scale-110 transition-transform duration-300">🎯</span>
-              Solicitar Presupuesto Gratuito
-              <motion.svg 
-                className="w-7 h-7" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </motion.svg>
-            </span>
+            <span>Solicitar Presupuesto Gratuito</span>
+            <svg 
+              className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
+              fill="none" 
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
             
-            {/* Animated background */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-              initial={{ x: '-100%' }}
-              animate={{ x: '200%' }}
-              transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
-            />
+            {/* Subtle glow */}
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-[var(--gold)]/0 via-[var(--gold)]/10 to-[var(--gold)]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.a>
         </motion.div>
       </div>
