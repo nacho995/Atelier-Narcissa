@@ -1,0 +1,50 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: narcissa:prod
+    container_name: narcissa-prod
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+    networks:
+      - narcissa-network
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "com.narcissa.description=Atelier Narcissa Production"
+      - "com.narcissa.version=2.0.0"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  certbot:
+    image: certbot/certbot:latest
+    container_name: narcissa-certbot
+    volumes:
+      - certbot-etc:/etc/letsencrypt
+      - certbot-var:/var/lib/letsencrypt
+      - ./dist:/usr/share/nginx/html
+    depends_on:
+      - web
+    command: certonly --webroot --webroot-path=/usr/share/nginx/html --email info@narcissa.com --agree-tos --no-eff-email -d narcissa.com -d www.narcissa.com
+
+volumes:
+  certbot-etc:
+    driver: local
+  certbot-var:
+    driver: local
+
+networks:
+  narcissa-network:
+    driver: bridge
+

@@ -1,0 +1,46 @@
+services:
+  # Desarrollo - Hot reload
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: narcissa-dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
+    command: npm run dev -- --host
+    networks:
+      - narcissa-network
+    restart: unless-stopped
+
+  # Producción - Nginx
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: narcissa-web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      - NODE_ENV=production
+    networks:
+      - narcissa-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  narcissa-network:
+    driver: bridge

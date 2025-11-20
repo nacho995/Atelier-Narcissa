@@ -1,0 +1,27 @@
+{
+  "performance": {
+    "minScore": 0.9
+  },
+  "accessibility": {
+    "minScore": 0.95
+  },
+  "best-practices": {
+    "minScore": 0.9
+  },
+  "seo": {
+    "minScore": 0.95
+  },
+  "first-contentful-paint": {
+    "maxNumericValue": 2000
+  },
+  "largest-contentful-paint": {
+    "maxNumericValue": 2500
+  },
+  "cumulative-layout-shift": {
+    "maxNumericValue": 0.1
+  },
+  "total-blocking-time": {
+    "maxNumericValue": 300
+  }
+}
+
