@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-gradient-radial from-[var(--gold)]/15 via-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
 
       {/* Fade transition from Contact */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1a1a] via-[#1a1a1a]/80 to-transparent pointer-events-none z-20" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1a1a] to-transparent pointer-events-none z-20" />
 
       {/* Top Golden Line */}
       <div className="h-1 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent shadow-[0_0_20px_rgba(184,147,95,0.5)]" />

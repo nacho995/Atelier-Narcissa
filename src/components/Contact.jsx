@@ -87,16 +87,11 @@ const Contact = () => {
         />
       </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
-
       {/* Elegant Gradient Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-[var(--gold)]/20 via-[var(--gold)]/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/15 via-[var(--burgundy)]/5 to-transparent rounded-full blur-3xl" />
       
-      {/* Fade transitions */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-transparent to-transparent pointer-events-none z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1a1a] to-transparent pointer-events-none z-20" />
 
       <div className="container relative z-10">
         {/* Section Header */}
@@ -112,8 +107,8 @@ const Contact = () => {
             transition={{ delay: 0.2, type: "spring" }}
             className="inline-block mb-6"
           >
-            <span className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border-2 border-[var(--gold)]/40 shadow-lg">
-              <span className="text-[var(--gold)] font-bold tracking-[0.2em] uppercase text-sm">Contacto</span>
+            <span className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[var(--gold)] to-[var(--gold-light)] rounded-full border-2 border-white/20 shadow-2xl">
+              <span className="text-black font-black tracking-[0.25em] uppercase text-sm">✉ CONTACTO</span>
             </span>
           </motion.div>
           

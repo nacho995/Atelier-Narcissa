@@ -12,35 +12,28 @@ const About = () => {
   };
 
   return (
-    <section
-      id="nosotros"
-      ref={ref}
-      className="section relative overflow-hidden"
-    >
-      {/* Soft White Gradient Background */}
+    <section id="nosotros" ref={ref} className="section relative overflow-hidden">
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#fafafa] via-[#f5f5f5] to-[#ffffff]" />
       
-      {/* Subtle texture overlay */}
+      {/* Subtle Pattern */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `
-            repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(184,147,95,0.1) 2px, rgba(184,147,95,0.1) 3px),
-            repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(125,30,58,0.05) 2px, rgba(125,30,58,0.05) 3px)
-          `
+          backgroundImage: `repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(184,147,95,0.1) 2px, rgba(184,147,95,0.1) 3px), repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(125,30,58,0.05) 2px, rgba(125,30,58,0.05) 3px)`
         }} />
       </div>
 
-      {/* Soft Gradient Orbs */}
+      {/* Gradient Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-radial from-[var(--gold)]/10 via-[var(--gold)]/3 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-[var(--burgundy)]/8 via-[var(--burgundy)]/2 to-transparent rounded-full blur-3xl" />
       
-      {/* Fade transitions */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white via-white/50 to-transparent pointer-events-none z-20" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent pointer-events-none z-20" />
+      {/* Fade Transitions */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-[#fafafa] to-transparent pointer-events-none z-20" />
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#1a1a1a] to-transparent pointer-events-none z-20" />
 
       <div className="container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 items-center">
-          {/* Image Side */}
+        <div className="grid lg:grid-cols-2 gap-10 sm:gap-16 lg:gap-20 items-center">
+          {/* Image */}
           <motion.div
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
@@ -48,110 +41,85 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] overflow-hidden shadow-2xl">
+            <div className="relative aspect-[4/5] overflow-hidden shadow-2xl rounded-2xl">
               <img
                 src={craftsmanHands}
-                alt="Artesano trabajando con precisión"
+                alt="Artesana trabajando con dedicación"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 border-8 border-white/20 pointer-events-none" />
+              <div className="absolute inset-0 border-8 border-white/20 pointer-events-none rounded-2xl" />
             </div>
 
-            {/* Floating Badge */}
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 bg-[var(--navy)] text-white p-6 sm:p-8 md:p-10 shadow-2xl rounded-sm"
+              className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 bg-[var(--navy)] text-white p-6 sm:p-8 shadow-2xl rounded-xl"
             >
               <div className="text-center">
-                <div className="text-4xl sm:text-5xl md:text-6xl font-serif text-[var(--gold)] mb-2 font-semibold leading-none">
-                  29+
-                </div>
+                <div className="text-4xl sm:text-5xl font-serif text-[var(--gold)] mb-2 font-semibold">29+</div>
                 <div className="text-[10px] sm:text-xs uppercase tracking-widest opacity-90">
-                  Años de
-                  <br />
-                  Excelencia
+                  Años de<br />Excelencia
                 </div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Content Side */}
+          {/* Content */}
           <motion.div
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
             variants={fadeInUp}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-              className="inline-block text-[var(--gold)] text-sm tracking-[0.25em] uppercase mb-6 font-semibold"
-            >
-              Atelier Narcissa
-            </motion.span>
+            <span className="inline-block text-[var(--gold)] text-sm tracking-[0.25em] uppercase mb-6 font-semibold">
+              Atelier Narcisa
+            </span>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--navy)] mb-4 sm:mb-6 leading-tight">
-              Tradición y elegancia
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[var(--navy)] mb-6 leading-tight">
+              Tradición artesanal
               <br />
-              <span className="text-[var(--burgundy)] italic">
-                en cada detalle
-              </span>
+              <span className="text-[var(--burgundy)] italic">en cada puntada</span>
             </h2>
 
-            <div className="divider-luxury mb-6 sm:mb-8" />
+            <div className="divider-luxury mb-8" />
 
-            <div className="space-y-4 sm:space-y-6 text-[var(--charcoal)]/80 text-base sm:text-lg leading-relaxed">
+            <div className="space-y-6 text-[var(--charcoal)]/80 text-base sm:text-lg leading-relaxed">
               <p>
-                Desde 1995, <strong className="text-[var(--charcoal)]">Atelier Narcissa</strong> se
-                dedica al arte de la tapicería de lujo. Cada proyecto es único,
-                combinando técnicas artesanales tradicionales con diseños
-                contemporáneos sofisticados.
+                Desde 1995, <strong className="text-[var(--charcoal)]">Atelier Narcisa</strong> es sinónimo de 
+                excelencia artesanal. Combinamos dos pasiones: la <strong>confección de vestidos de novia</strong> únicos 
+                y la <strong>tapicería de alta calidad</strong>.
               </p>
 
               <p>
-                Nuestro equipo de artesanos expertos transforma sofás, sillones
-                y muebles antiguos en piezas únicas que reflejan tu estilo
-                personal y perduran en el tiempo.
+                Cada proyecto es tratado con dedicación absoluta. Ya sea tu vestido de novia soñado 
+                o la renovación de tu sofá favorito, aplicamos el mismo nivel de cuidado y perfección.
               </p>
 
-              <p className="text-[var(--burgundy)] font-semibold text-lg sm:text-xl leading-relaxed">
-                No solo restauramos muebles, creamos legados.
+              <p className="text-[var(--burgundy)] font-semibold text-lg sm:text-xl">
+                No solo creamos piezas, creamos recuerdos que perduran.
               </p>
             </div>
 
-            {/* Features Grid */}
+            {/* Stats */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.6 }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12 pt-8 sm:pt-10 md:pt-12 border-t border-[var(--charcoal)]/10"
+              className="grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-[var(--charcoal)]/10"
             >
-              <div className="text-center px-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
-                  3500+
-                </div>
-                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
-                  Proyectos
-                </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-serif text-[var(--burgundy)] font-semibold mb-1">3500+</div>
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">Proyectos</div>
               </div>
-              <div className="text-center px-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
-                  100%
-                </div>
-                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
-                  Artesanal
-                </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-serif text-[var(--burgundy)] font-semibold mb-1">100%</div>
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">Artesanal</div>
               </div>
-              <div className="text-center px-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl font-serif text-[var(--burgundy)] font-semibold mb-1 sm:mb-2 leading-none">
-                  A+
-                </div>
-                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">
-                  Calidad
-                </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-serif text-[var(--burgundy)] font-semibold mb-1">A+</div>
+                <div className="text-xs sm:text-sm text-[var(--charcoal)]/60 tracking-wider uppercase">Calidad</div>
               </div>
             </motion.div>
           </motion.div>
