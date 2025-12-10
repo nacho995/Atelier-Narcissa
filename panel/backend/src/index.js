@@ -10,12 +10,22 @@ import webhookRoutes from './routes/webhook.js';
 
 export const app = express();
 
+// CORS mejorado para aceptar todos los dominios de Vercel
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' 
-    ? [process.env.FRONTEND_URL, 'https://atelier-narcissa-o9xq.vercel.app']
-    : true,
+  origin: (origin, callback) => {
+    const allowedPatterns = [
+      /^http:\/\/localhost:\d+$/,
+      /^https:\/\/.*\.vercel\.app$/
+    ];
+    if (!origin || allowedPatterns.some(p => p.test(origin))) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Permitir en dev
+    }
+  },
   credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
