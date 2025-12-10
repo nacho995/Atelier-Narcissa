@@ -4,13 +4,13 @@ import bcrypt from 'bcryptjs';
 const prisma = new PrismaClient();
 
 async function main() {
-  const hashedPassword = await bcrypt.hash('narcisa2024', 10);
+  const hashedPassword = await bcrypt.hash('narcisa2025', 10);
   
   await prisma.user.upsert({
-    where: { email: 'narcisa@ateliernarcisa.com' },
+    where: { email: 'narcissaatelier@gmail.com' },
     update: {},
     create: {
-      email: 'narcisa@ateliernarcisa.com',
+      email: 'narcissaatelier@gmail.com',
       password: hashedPassword,
       name: 'Narcisa'
     }
@@ -26,7 +26,7 @@ async function main() {
     });
   }
 
-  console.log('Seed completado');
+  console.log('✅ Seed completado - Usuario: narcissaatelier@gmail.com');
 }
 
 main()
@@ -37,4 +37,3 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
-
