@@ -1,4 +1,4 @@
-const API_URL = '/api';
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 class ApiService {
   constructor() {
@@ -13,10 +13,48 @@ class ApiService {
     const headers = { 'Content-Type': 'application/json' };
     if (this.token) headers.Authorization = `Bearer ${this.token}`;
 
-    const res = await fetch(`${API_URL}${endpoint}`, { ...options, headers });
-    const data = await res.json();
+    let res;
+    try {
+      res = await fetch(`${API_URL}${endpoint}`, { ...options, headers });
+    } catch (error) {
+      throw new Error('No se puede conectar con el servidor. Verifica tu conexión a internet.');
+    }
+
+    // Intentar leer la respuesta
+    let text;
+    try {
+      text = await res.text();
+    } catch {
+      throw new Error('Error al leer la respuesta del servidor.');
+    }
+
+    // Intentar parsear JSON
+    let data;
+    try {
+      data = text && text.trim() ? JSON.parse(text) : {};
+    } catch (parseError) {
+      // El servidor devolvió algo que no es JSON (probablemente HTML de error)
+      if (res.status === 401) {
+        throw new Error('Usuario o contraseña incorrectos. Verifica tus datos.');
+      }
+      if (res.status === 404) {
+        throw new Error('El servidor no está configurado correctamente. Contacta al administrador.');
+      }
+      if (res.status >= 500) {
+        throw new Error('El servidor tiene un problema. Intenta de nuevo en unos minutos.');
+      }
+      // Cualquier otro caso
+      throw new Error('No se puede conectar con el servidor. Asegúrate de que esté activo.');
+    }
     
-    if (!res.ok) throw new Error(data.error || 'Error de servidor');
+    // Verificar si hubo error HTTP
+    if (!res.ok) {
+      if (res.status === 401) {
+        throw new Error('Usuario o contraseña incorrectos');
+      }
+      throw new Error(data.error || data.message || 'Error del servidor');
+    }
+    
     return data;
   }
 
@@ -81,4 +119,3 @@ class ApiService {
 }
 
 export const api = new ApiService();
-
