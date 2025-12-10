@@ -10,20 +10,12 @@ import webhookRoutes from './routes/webhook.js';
 
 export const app = express();
 
-// CORS mejorado para aceptar todos los dominios de Vercel
+// CORS permisivo para todos los dominios de Vercel
 app.use(cors({
-  origin: (origin, callback) => {
-    const allowedPatterns = [
-      /^http:\/\/localhost:\d+$/,
-      /^https:\/\/.*\.vercel\.app$/
-    ];
-    if (!origin || allowedPatterns.some(p => p.test(origin))) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Permitir en dev
-    }
-  },
-  credentials: true
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(express.json());
