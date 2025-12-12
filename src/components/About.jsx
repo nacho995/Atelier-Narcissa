@@ -88,17 +88,17 @@ const About = () => {
             <div className="space-y-6 text-[var(--charcoal)]/80 text-base sm:text-lg leading-relaxed">
               <p>
                 Desde 1995, <strong className="text-[var(--charcoal)]">Atelier Narcisa</strong> es sinónimo de 
-                excelencia artesanal. Combinamos dos pasiones: la <strong>confección de vestidos de novia</strong> únicos 
-                y la <strong>tapicería de alta calidad</strong>.
+                excelencia artesanal. Nos especializamos en <strong>tapicería de alta calidad</strong> y 
+                <strong> textiles decorativos personalizados</strong>.
               </p>
 
               <p>
-                Cada proyecto es tratado con dedicación absoluta. Ya sea tu vestido de novia soñado 
-                o la renovación de tu sofá favorito, aplicamos el mismo nivel de cuidado y perfección.
+                Cada proyecto es tratado con dedicación absoluta. La renovación de tus muebles 
+                y espacios es nuestra pasión, aplicando el máximo nivel de cuidado y perfección.
               </p>
 
               <p className="text-[var(--burgundy)] font-semibold text-lg sm:text-xl">
-                No solo creamos piezas, creamos recuerdos que perduran.
+                No solo renovamos muebles, transformamos espacios que perduran.
               </p>
             </div>
 

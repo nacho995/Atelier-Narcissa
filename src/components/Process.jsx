@@ -7,7 +7,7 @@ const Process = () => {
 
   const steps = [
     { number: '01', title: 'Consulta Inicial', description: 'Nos contactas para contarnos tu proyecto. Evaluamos tus necesidades sin compromiso.', icon: '📞' },
-    { number: '02', title: 'Recogida', description: 'Pasamos a recoger tu vestido o mueble. Tomamos medidas y definimos los detalles.', icon: '🚗' },
+    { number: '02', title: 'Recogida', description: 'Pasamos a recoger tu mueble. Tomamos medidas y definimos los detalles.', icon: '🚗' },
     { number: '03', title: '1ª Prueba', description: 'Primera prueba para verificar ajustes, materiales y avance del proyecto.', icon: '📐' },
     { number: '04', title: '2ª/3ª Prueba', description: 'Pruebas adicionales para asegurar la perfección del resultado.', icon: '✨' },
     { number: '05', title: 'Entrega', description: 'Entregamos el trabajo terminado a tu completa satisfacción.', icon: '🎁' },
