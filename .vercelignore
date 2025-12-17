@@ -1,8 +1,0 @@
-panel/
-server/
-node_modules/
-.git/
-*.log
-.env*
-!.env.template
-test-cache.html
