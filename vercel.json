@@ -1,7 +1,10 @@
 {
-  "buildCommand": "npm install --prefix . && npm run build",
+  "version": 2,
+  "name": "atelier-narcissa-web",
+  "buildCommand": "npm install && npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install --prefix .",
+  "installCommand": "npm install",
+  "framework": "vite",
   "routes": [
     {
       "src": "/assets/(.*)",
