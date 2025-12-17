@@ -1,7 +1,8 @@
 {
-  "buildCommand": "npm install --legacy-peer-deps && npm run build",
+  "buildCommand": "cd $VERCEL_PROJECT_ROOT && npm install && npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "cd $VERCEL_PROJECT_ROOT && npm install",
+  "ignoreCommand": "exit 1;",
   "routes": [
     {
       "src": "/assets/(.*)",
