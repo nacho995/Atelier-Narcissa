@@ -1,8 +1,7 @@
 {
-  "buildCommand": "cd $VERCEL_PROJECT_ROOT && npm install && npm run build",
+  "buildCommand": "npm install --prefix . && npm run build",
   "outputDirectory": "dist",
-  "installCommand": "cd $VERCEL_PROJECT_ROOT && npm install",
-  "ignoreCommand": "exit 1;",
+  "installCommand": "npm install --prefix .",
   "routes": [
     {
       "src": "/assets/(.*)",
